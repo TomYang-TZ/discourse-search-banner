@@ -9,6 +9,38 @@ export default apiInitializer("0.8", (api) => {
       : "above-main-container";
 
   api.registerConnectorClass(disableConnectorName, "search-banner", {
+    setupComponent(args, component) {
+
+
+      api.onPageChange((url) => {
+        const path = window.location.pathname;
+        let category;
+        const container = Discourse.__container__;
+        const controller = container.lookup('controller:navigation/category');
+        category = controller.get("category");
+        const siteSettings = component.SiteSettings;
+        const isException = category;
+        document.querySelector("html").classList.add("custom-logo");
+        if (url.includes("/c/")){
+          try{
+            component.set("include_logo", true);
+            component.set("imgsrc", category.uploaded_logo.url);
+          }
+          catch (error){
+            component.set("imgsrc", category.parentCategory.uploaded_logo.url);
+          }finally{
+            component.set("imgsrc", siteSettings.logo_small);
+          }
+
+        }else{
+          component.set("include_logo", false);
+        }
+
+
+
+
+      });
+    }
     shouldRender() {
       return false;
     },
