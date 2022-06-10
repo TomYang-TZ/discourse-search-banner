@@ -21,7 +21,7 @@ export default Component.extend({
       // "all"
       return (
         currentRouteName !== "full-page-search" &&
-        !currentRouteName.startsWith("admin.")
+        !currentRouteName.startsWith("admin.") && !currentRouteName.startsWith("t/")
       );
     }
   },
