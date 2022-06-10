@@ -1,10 +1,8 @@
 {{#if shouldDisplay}}
     {{#if include_logo}}
         <div class="custom-search-banner">
-            <div class = 'category-logo.aspect-image'>
-                < img src={{imgsrc}}  width="140" height="140" style="left: 360px; top: 115px ; position: absolute ;z-index: 15">
-            </div>
             <div class="wrap custom-search-banner-wrap">
+                < img src={{imgsrc}}  width="140" height="140" style="left: 360px; top: 115px ; position: absolute ;z-index: 15">
                 {{mount-widget widget="search-widget"}}
             </div>
         </div>
