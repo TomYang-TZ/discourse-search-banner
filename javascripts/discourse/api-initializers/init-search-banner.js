@@ -29,7 +29,7 @@ export default apiInitializer("0.8", (api) => {
           catch (error){
             component.set("imgsrc", category.parentCategory.uploaded_logo.url);
           }finally{
-            component.set("imgsrc", siteSettings.logo_small);
+            component.set("imgsrc", "https://i.imgur.com/XZBbNUV.png");
           }
 
         }else{
