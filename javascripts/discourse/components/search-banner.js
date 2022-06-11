@@ -22,7 +22,7 @@ export default Component.extend({
       // "all"
       return (
         currentRouteName !== "full-page-search" &&
-        !currentRouteName.startsWith("admin.") && window.location.href.indexOf("/t/") != -1
+        !currentRouteName.startsWith("admin.") && window.location.href.indexOf("/t/") !== -1
       );
     }
   },
