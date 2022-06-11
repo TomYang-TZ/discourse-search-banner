@@ -21,6 +21,7 @@ export default apiInitializer("0.8", (api) => {
         const siteSettings = component.SiteSettings;
         const isException = category;
         document.querySelector("html").classList.add("custom-logo");
+        if (url.includes('/t/')){component.set("remove_search_widget",true);}
         if (url.includes("/c/")){
           try{
             component.set("include_logo", true);
