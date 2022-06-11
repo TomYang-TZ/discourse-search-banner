@@ -10,7 +10,7 @@ export default Component.extend({
 
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
-    api.onPageChange((url) => {
+
     const showOn = settings.show_on;
     if (showOn === "homepage") {
       return currentRouteName === `discovery.${defaultHomepage()}`;
@@ -22,9 +22,9 @@ export default Component.extend({
       // "all"
       return (
         currentRouteName !== "full-page-search" &&
-        !currentRouteName.startsWith("admin.") && !url.includes("/t/")
+        !currentRouteName.startsWith("admin.") && window.location.href.indexOf("/t/") == -1
       );
-    })}
+    }
   },
 
   @discourseComputed("currentUser")
